@@ -1,0 +1,16 @@
+https://www.discovermagazine.com/sitemap/article/environment/1.xml
+https://www.discovermagazine.com/sitemap/article/health/1.xml
+https://www.discovermagazine.com/sitemap/article/lifestyle/1.xml
+https://www.discovermagazine.com/sitemap/article/mind/1.xml
+https://www.discovermagazine.com/sitemap/article/planet-earth/1.xml
+https://www.discovermagazine.com/sitemap/article/sponsored/1.xml
+https://www.discovermagazine.com/sitemap/article/technology/1.xml
+https://www.discovermagazine.com/sitemap/article/the-sciences/1.xml
+https://www.discovermagazine.com/sitemap/article/uncategorized/1.xml
+https://www.discovermagazine.com/sitemap/author/1.xml
+https://www.discovermagazine.com/sitemap/blog/1.xml
+https://www.discovermagazine.com/sitemap/category/1.xml
+https://www.discovermagazine.com/sitemap/department/1.xml
+https://www.discovermagazine.com/sitemap/issue/1.xml
+https://www.discovermagazine.com/sitemap/misc/1.xml
+https://www.discovermagazine.com/sitemap/tag/1.xml
