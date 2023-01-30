@@ -1,4 +1,16 @@
-from requests import get
+from requests import get, post
+import json
+import base64
+
+username = 'biplob'
+password = 'PV4w 1R83 vxlB FnV2 eXCI ScgR'
+wp_credential = f'{username}:{password}'
+wp_token = base64.b64encode(wp_credential.encode())
+wp_header = {'Authorization': f'Basic {wp_token.decode("utf-8")}'}
+
+
+
+
 data_url = 'https://mobile-phone-server.vercel.app/phones'
 res = get(data_url)
 
@@ -37,6 +49,25 @@ def wp_parapgraph(text):
 def wp_heading_two(text):
     return f'<!-- wp:heading --><h2>{text}</h2><!-- /wp:heading -->'
 
+def concatenate_string(*args):
+    final = ''
+    for arg in args:
+        final += arg
+    return final
+
+def slugify(name):
+    text = name.strip().replace(' ', '-')
+    return text
+def create_wp_post(title, content, slug, status = 'publish'):
+    api_url = 'https://biplobsite.local/wp-json/wp/v2/posts'
+    data = {
+        'title' : title,
+        'content' : content,
+        'slug': slug,
+        'status': status
+    }
+    response = post(api_url, headers=wp_header, json=data, verify=False)
+    print(f'{title} is posted')
 
 for phone in phones:
     name = phone.get('name').title()
@@ -60,5 +91,10 @@ for phone in phones:
     first_table = wp_table_dict(first_dictionary)
 
     # specifications Sections
-    first_specifications = phone.get('specifications')
-    print(type(first_specifications))
+    second_heading = wp_heading_two('Specifications')
+    specifications_string = phone.get('specifications')
+    specifications = json.loads(specifications_string)
+    second_table = wp_table_dict(specifications)
+    content = concatenate_string(artical_paragraph,first_image, first_heading, first_table, second_heading, second_table)
+    slug = slugify(name)
+    create_wp_post(name, content, slug)
