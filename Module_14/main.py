@@ -2,7 +2,7 @@ import openai
 import base64
 import requests
 
-openai.api_key = f'open ai api key'
+openai.api_key = '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'
 
 
 def wph2(text):
@@ -42,7 +42,7 @@ for q in questions_list:
 
 
 user = 'biplob'
-password = 'wp password'
+password = 'TwjA y4Gf eZIw 2Hbb xHma 15ba'
 credential = f'{user}: {password}'
 token = base64.b64encode(credential.encode())
 header = {'Authorization': f'Basic {token.decode("utf-8")}'}
