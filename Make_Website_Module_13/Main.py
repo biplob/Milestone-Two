@@ -58,13 +58,14 @@ def concatenate_string(*args):
 def slugify(name):
     text = name.strip().replace(' ', '-')
     return text
-def create_wp_post(title, content, slug, status = 'publish'):
+def create_wp_post(title, content, slug, excerpt, status = 'publish'):
     api_url = 'https://biplobsite.local/wp-json/wp/v2/posts'
     data = {
         'title' : title,
         'content' : content,
         'slug': slug,
-        'status': status
+        'status': status,
+        'excerpt': excerpt
     }
     response = post(api_url, headers=wp_header, json=data, verify=False)
     print(f'{title} is posted')
@@ -97,4 +98,4 @@ for phone in phones:
     second_table = wp_table_dict(specifications)
     content = concatenate_string(artical_paragraph,first_image, first_heading, first_table, second_heading, second_table)
     slug = slugify(name)
-    create_wp_post(name, content, slug)
+    create_wp_post(name, content, slug, first_paragraph)
