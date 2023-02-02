@@ -21,16 +21,17 @@ def openai_answer(prompt):
             top_p=1,
             frequency_penalty=0,
             presence_penalty=0
-)
+         )
             output = response.get('choices')[0].get('text')
             return output
 # print(openai_answer("write three sentence for food makeing system"))
 
-keyword = input('Enter your keyword: ')
-prompt = f'Write four questions about {keyword}'
+keyword = input("Enter your keyword: ")
+prompt = f'Write three questions about {keyword}'
+content = wpp(openai_answer(f'write short into about {keyword}').strip().strip('\n'))
 questions = openai_answer(prompt)
-questions_list = questions.strip().strip('\n')
-end_list = 'write a paragraph about it'
+questions_list = questions.strip().split('\n')
+end_line = 'write a paragraph about it'
 
 qna = {}
 for q in questions_list:
