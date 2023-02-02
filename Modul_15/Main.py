@@ -41,7 +41,7 @@ data = {
     'content': content
 }
 
-headers = headers('username', 'wp_password')
+headers = headers('wp_username', 'wp_password')
 endpoint_url = 'https://biplobsite.local/wp-json/wp/v2/posts'
 res = requests.post(endpoint_url, data=data, headers=headers, verify=False)
 print(res)
